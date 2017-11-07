@@ -21,9 +21,19 @@ This Git repo, provides at this stage hints and information on how to interface 
 - 4-bit or 8-bit Microcontroller (MCU)
   The host MCU establishes and maintains a communication session to other remote ANT-enabled devices by means of a simple,
   bidirectional, serial message protocol. This document details the protocol and provides examples of how to use ANT
-  for wireless networking.
-  
-  https://www.thisisant.com/developer/resources/downloads/
+  for wireless networking. https://www.thisisant.com/developer/resources/downloads/
+- Network Number
+- RF Frequency
+  Default Frequency 2466MHz
+- Device Number
+  A Sample Serial Number
+- Transmission Type
+- Device Type
+- Channel Type
+  0x10 / 0x00 / 0x20 / 0x30 / 0x40
+- Channel Period
+  16384 2Hz Message Rate
+- Data Type
 
 - CHANNEL IDs
   Only devices with matching channel IDs can communicate with each other. The channel ID represents the device
@@ -32,7 +42,7 @@ This Git repo, provides at this stage hints and information on how to interface 
   any/all of these fields can be set to zero, representing a wildcard value, such that the slave will find the first master
   matching other channel parameters (network key, frequency).
   
-- device number
+- Device number
   The device number should not be set to 0x0000 or 0xFFFF as these are reserved values
 
 https://www.thisisant.com/developer/ant/ant-basics/
