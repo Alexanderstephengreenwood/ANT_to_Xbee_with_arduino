@@ -23,14 +23,39 @@ This Git repo, provides at this stage hints and information on how to interface 
   bidirectional, serial message protocol. This document details the protocol and provides examples of how to use ANT
   for wireless networking. https://www.thisisant.com/developer/resources/downloads/
 - Network Number
+  A network number is an 8-bit field that identifies the available networks on an ANT device, with acceptable values ranging
+  from 0 to the maximum number defined by the ANT implementation. The host can obtain this maximum number by
+  querying the ANT system using the appropriate request message (refer to section 9 for more details). The default network
+  number is 0. Network number 0 is assigned to the “Public Network” by default. For AP1 devices, the remaining network
+  numbers are left un-initialized; however, for non-AP1 devices all network numbers typically default to the public network
+  key
 - RF Frequency
   Default Frequency 2466MHz
 - Device Number
   A Sample Serial Number
 - Transmission Type
+  byte: 0-1
+            00: Reserved
+            01: Independent Channel
+            10: Shared Channel using 1 byte address (if supported)
+            11: Shared Channel using 2 byte address
+  byte 2
+            Optional for non-ANT+ managed networks:
+                0: Global data pages not used
+                1: Global data pages used (e.g. ANT+ Common Data pages)
+  byte 3
+            Undefined – set to zero.
+  byte 4-7
+            Optional extension of the device number (MSN)
 - Device Type
 - Channel Type
-  0x10 / 0x00 / 0x20 / 0x30 / 0x40
+  0x00 Bidirectional Slave Channel
+  0x10 Bidirectional Master Channel
+  0x20 Shared Bidirectional Slave Channel
+  0x30 Shared Bidirectional Master Channel
+  0x40 Slave Receive Only Channel (diagnostic)
+  0x50 Master Transmit Only Channel (legacy)
+
 - Channel Period
   16384 2Hz Message Rate
 - Data Type
