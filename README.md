@@ -14,4 +14,30 @@ This Git repo, provides at this stage hints and information on how to interface 
 -	Digi XBee® XCTU
 -	Arduino
 
-To be continued
+> ANT protocole notes
+
+- Emission network format: 2.4 GHz ISM
+- ANT easily handles peer-to-peer, star, connected star, tree and fixed mesh topologies
+- 4-bit or 8-bit Microcontroller (MCU)
+  The host MCU establishes and maintains a communication session to other remote ANT-enabled devices by means of a simple,
+  bidirectional, serial message protocol. This document details the protocol and provides examples of how to use ANT
+  for wireless networking.
+  
+  https://www.thisisant.com/developer/resources/downloads/
+
+- CHANNEL IDs
+  Only devices with matching channel IDs can communicate with each other. The channel ID represents the device
+  type/number and transmission type of the master device and must be specified on the master device. On a slave device,
+  these fields are set to determine which master device to communicate with. They can be set to match a specific master, or
+  any/all of these fields can be set to zero, representing a wildcard value, such that the slave will find the first master
+  matching other channel parameters (network key, frequency).
+  
+- device number
+  The device number should not be set to 0x0000 or 0xFFFF as these are reserved values
+
+https://www.thisisant.com/developer/ant/ant-basics/
+https://www.thisisant.com/developer/ant-plus/device-profiles#524_tab --> ANT Tempe profil
+
+> Digi specifics
+- 
+https://www.digi.com/resources/documentation/digidocs/PDFs/90001458-13.pdf --> XCTU guide
